@@ -174,8 +174,8 @@ class NotificationManager {
             // windowUrl = 'callUser.html';
 
             windowOption = {
-                width: displays[0].size.width, // width
-                height: displays[0].size.height, // height
+                // width: displays[0].size.width, // width
+                // height: displays[0].size.height, // height
                 resizable: false, // modal 크기 조절
                 alwaysOnTop: true, // 상단고정
                 fullscreen: process.platform === 'win32', // 전체화면
@@ -238,13 +238,13 @@ class NotificationManager {
                 // 모니터 갯수만큼 modal 창 생성
                 for (let i = 1; i < displays.length; i++) {
                     const subModal = new BrowserWindow({
-                        width: displays[i].size.width,
-                        height: displays[i].size.height,
+                        // width: displays[i].size.width,
+                        // height: displays[i].size.height,
                         resizable: false,
                         alwaysOnTop: true,
                         fullscreen: true,
                         backgroundColor: '#ffffff',
-                        skipTaskbar: true,
+                        skipTaskbar: false,
                         transparent: true,
                         frame: false,
                         modal: true,
@@ -272,10 +272,16 @@ class NotificationManager {
 
             // 메인 모달창 load 완료 후 subModal 까지 show
             mainModal.webContents.on('did-finish-load', () => {
+                mainModal.setSkipTaskbar(true)
+                mainModal.maximize();
                 mainModal.show();
 
                 // 서브 모달창 show
-                subModals.forEach((modal) => modal.show());
+                subModals.forEach((modal) => {
+                    modal.setSkipTaskbar(true)
+	      modal.maximize()
+	      modal.show()
+	  });
             });
 
             mainModal.once('show', () => {
