@@ -272,16 +272,16 @@ class NotificationManager {
 
             // 메인 모달창 load 완료 후 subModal 까지 show
             mainModal.webContents.on('did-finish-load', () => {
-                mainModal.setSkipTaskbar(true)
+                mainModal.setSkipTaskbar(true);
                 mainModal.maximize();
                 mainModal.show();
 
                 // 서브 모달창 show
                 subModals.forEach((modal) => {
-                    modal.setSkipTaskbar(true)
-	      modal.maximize()
-	      modal.show()
-	  });
+                    modal.setSkipTaskbar(true);
+                    modal.maximize();
+                    modal.show();
+                });
             });
 
             mainModal.once('show', () => {
