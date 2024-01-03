@@ -65,12 +65,11 @@ create_tag()
 
       # tag 생성
       tag "${VERSION}" "Released on $(date -u)"
-      tag_push
+#      tag_push
 
       # tag 생성 후 push 문구
-      print_info "$ git push --follow-tags origin ${branch_name}:${branch_name}"
-
-      print_info "Git tag push 완료 ( ${VERSION} )"
+      print_info "Git tag 생성 완료"
+      print_info "$ git push origin v${VERSION} 명령어로 tag 를 push 해주세요."
       break
     else
       echo "잘못된 버전 타입입니다."
