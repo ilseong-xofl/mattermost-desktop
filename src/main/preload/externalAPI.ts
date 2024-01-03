@@ -278,9 +278,11 @@ window.addEventListener('message', ({origin, data = {}}: {origin?: string; data?
         break;
     }
     case 'dispatch-notification': {
-        const {title, body, channel, teamId, url, silent, data: messageData, sender} = message;
+        const {title, body, channel, teamId, url, silent, data: messageData} = message;
         channels.set(channel.id, channel);
-        ipcRenderer.send(CALLS_CUSTOM_COMMAND, channel.id, teamId, url, sender);
+        if (message.sender) {
+            ipcRenderer.send(CALLS_CUSTOM_COMMAND, channel.id, teamId, url, message.sender);
+        }
         ipcRenderer.send(NOTIFY_MENTION, title, body, channel.id, teamId, url, silent, messageData.soundName);
         break;
     }

@@ -343,7 +343,9 @@ export class MainWindow extends EventEmitter {
             switch (process.platform) {
             case 'win32':
             case 'linux':
-                if (Config.minimizeToTray) {
+                hideWindow(this.win);
+
+                /*if (Config.minimizeToTray) {
                     if (Config.alwaysMinimize) {
                         hideWindow(this.win);
                     } else {
@@ -378,7 +380,7 @@ export class MainWindow extends EventEmitter {
                             app.quit();
                         }
                     });
-                }
+                }*/
                 break;
             case 'darwin':
                 // need to leave fullscreen first, then hide the window
