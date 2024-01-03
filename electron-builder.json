@@ -3,9 +3,7 @@
     {
       "provider": "github",
       "owner": "ilseong-xofl",
-      "repo": "mattermost-desktop",
-      "private": true,
-      "token": "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"
+      "repo": "mattermost-desktop"
     }
   ],
   "appId": "Mattermost.Desktop",
