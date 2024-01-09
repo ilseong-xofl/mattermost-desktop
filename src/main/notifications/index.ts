@@ -174,14 +174,14 @@ class NotificationManager {
             // windowUrl = 'callUser.html';
 
             windowOption = {
-                // width: displays[0].size.width, // width
-                // height: displays[0].size.height, // height
+                width: displays[0].size.width, // width
+                height: displays[0].size.height, // height
                 resizable: false, // modal 크기 조절
                 alwaysOnTop: true, // 상단고정
-                fullscreen: process.platform === 'win32', // 전체화면
+                // fullscreen: process.platform === 'win32', // 전체화면
                 backgroundColor: '#ffffff', // 배경색
                 skipTaskbar: true, // 작업표시줄 제거
-                transparent: true, // 투명
+                // transparent: true, // 투명
                 frame: false, // 프레임 제거
                 parent: parentWindow, // 부모창 설정
                 modal: true, // 모달
@@ -228,7 +228,7 @@ class NotificationManager {
             mainModal.setPosition(displays[0].bounds.x, displays[0].bounds.y);
 
             // main modal URL 호출
-            // mainModal.loadURL(getLocalURLString(windowUrl, query));
+            // mainModal.loadURL(getLocalURL1String(windowUrl, query));
             mainModal.loadURL(getServerURLString(baseUrl + windowUrl, query));
 
             const subModals: BrowserWindow[] = [];
