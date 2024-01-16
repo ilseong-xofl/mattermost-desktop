@@ -137,6 +137,7 @@ const configDataSchemaV3 = Joi.object<ConfigV3>({
     useSpellChecker: Joi.boolean().default(true),
     enableHardwareAcceleration: Joi.boolean().default(true),
     startInFullscreen: Joi.boolean().default(false),
+    autoDownload: Joi.boolean().default(true),
     autostart: Joi.boolean().default(true),
     hideOnStart: Joi.boolean().default(false),
     spellCheckerLocales: Joi.array().items(Joi.string()).default([]),

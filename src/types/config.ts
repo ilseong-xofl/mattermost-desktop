@@ -54,6 +54,7 @@ export type ConfigV3 = {
     spellCheckerURL?: string;
     lastActiveTeam?: number;
     startInFullscreen?: boolean;
+    autoDownload?: boolean;
     autoCheckForUpdates?: boolean;
     alwaysMinimize?: boolean;
     alwaysClose?: boolean;

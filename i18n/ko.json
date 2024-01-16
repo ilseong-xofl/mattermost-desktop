@@ -212,6 +212,8 @@
   "renderer.components.settingsPage.flashWindow.description.note": "노트: ",
   "renderer.components.settingsPage.fullscreen": "전체 화면에서 앱 열기",
   "renderer.components.settingsPage.fullscreen.description": "활성화하면 {appName} 애플리케이션이 항상 전체 화면으로 열립니다",
+  "renderer.components.settingsPage.autoDownload": "파일 자동 다운로드",
+  "renderer.components.settingsPage.autoDownload.description": "활성화하면 다운로드 시 설정한 다운로드 위치로 파일이 자동 다운로드 됩니다.",
   "renderer.components.settingsPage.header": "설정",
   "renderer.components.settingsPage.launchAppMinimized": "최소화된 앱 실행",
   "renderer.components.settingsPage.launchAppMinimized.description": "활성화하면 앱이 시스템 트레이에서 시작되고 실행 시 창이 표시되지 않습니다.",

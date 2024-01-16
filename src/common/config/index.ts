@@ -185,6 +185,11 @@ export class Config extends EventEmitter {
     get startInFullscreen() {
         return this.combinedData?.startInFullscreen ?? defaultPreferences.startInFullscreen;
     }
+
+    get autoDownload() {
+        return this.combinedData?.autoDownload ?? defaultPreferences.autoDownload;
+    }
+
     get enableServerManagement() {
         return this.combinedData?.enableServerManagement ?? buildConfig.enableServerManagement;
     }

@@ -129,7 +129,7 @@ export class DownloadsManager extends JsonFileManager<DownloadedItems> {
         } else {
             event.preventDefault();
 
-            if (this.shouldShowSaveDialog(item, Config.downloadLocation)) {
+            if (this.shouldShowSaveDialog(item, Config.downloadLocation) || !Config.autoDownload) {
                 const saveDialogResult = await this.showSaveDialog(item);
                 if (saveDialogResult.canceled || !saveDialogResult.filePath) {
                     return;
