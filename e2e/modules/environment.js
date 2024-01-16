@@ -105,6 +105,7 @@ const demoConfig = {
     darkMode: false,
     lastActiveTeam: 0,
     startInFullscreen: false,
+    autoDownload: true,
     autoCheckForUpdates: true,
     appLanguage: 'en',
     logLevel: 'silly',

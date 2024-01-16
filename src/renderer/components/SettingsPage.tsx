@@ -56,6 +56,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
     spellCheckerURLRef: React.RefObject<HTMLInputElement>;
     enableHardwareAccelerationRef: React.RefObject<HTMLInputElement>;
     startInFullscreenRef: React.RefObject<HTMLInputElement>;
+    autoDownloadRef: React.RefObject<HTMLInputElement>;
     autoCheckForUpdatesRef: React.RefObject<HTMLInputElement>;
     logLevelRef: React.RefObject<HTMLSelectElement>;
     appLanguageRef: React.RefObject<HTMLSelectElement>;
@@ -94,6 +95,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
         this.useSpellCheckerRef = React.createRef();
         this.enableHardwareAccelerationRef = React.createRef();
         this.startInFullscreenRef = React.createRef();
+        this.autoDownloadRef = React.createRef();
         this.spellCheckerURLRef = React.createRef();
         this.autoCheckForUpdatesRef = React.createRef();
         this.logLevelRef = React.createRef();
@@ -365,6 +367,13 @@ class SettingsPage extends React.PureComponent<Props, State> {
         window.timers.setImmediate(this.saveSetting, CONFIG_TYPE_APP_OPTIONS, {key: 'startInFullscreen', data: this.startInFullscreenRef.current?.checked});
         this.setState({
             startInFullscreen: this.startInFullscreenRef.current?.checked,
+        });
+    }
+
+    handleChangeAutoDownload = () => {
+        window.timers.setImmediate(this.saveSetting, CONFIG_TYPE_APP_OPTIONS, {key: 'autoDownload', data: this.autoDownloadRef.current?.checked});
+        this.setState({
+            autoDownload: this.autoDownloadRef.current?.checked,
         });
     }
 
@@ -982,6 +991,30 @@ class SettingsPage extends React.PureComponent<Props, State> {
                         values={{
                             appName: this.state.appName,
                         }}
+                    />
+                </FormText>
+            </FormCheck>,
+        );
+
+        options.push(
+            <FormCheck
+                key='inputAutoDownload'
+            >
+                <FormCheck.Input
+                    type='checkbox'
+                    id='inputAutoDownload'
+                    ref={this.autoDownloadRef}
+                    checked={this.state.autoDownload}
+                    onChange={this.handleChangeAutoDownload}
+                />
+                <FormattedMessage
+                    id='renderer.components.settingsPage.autoDownload'
+                    defaultMessage='Automatically download files'
+                />
+                <FormText>
+                    <FormattedMessage
+                        id='renderer.components.settingsPage.autoDownload.description'
+                        defaultMessage='If enabled, files are automatically downloaded to the download location you set at the time of download'
                     />
                 </FormText>
             </FormCheck>,
